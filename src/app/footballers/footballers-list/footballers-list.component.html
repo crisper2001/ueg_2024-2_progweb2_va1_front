@@ -1,0 +1,25 @@
+<h2>Jogadores</h2>
+<hr>
+<button type="button" (click)="reload(true)" class="btn btn-primary mr-1">Recarregar</button>
+<button type="button" [routerLink]="['/new']" class="btn btn-primary mr-1">Adicionar jogador</button>
+<section>
+  <ul class="list-group">
+    <li class="list-group-item" *ngIf="footballers.length != 0">
+      <div class="footballer-item-content">
+        <div class="footballer-id">ID</div>
+        <div class="footballer-name">Nome</div>
+        <div class="footballer-birthday">Data de nascimento</div>
+        <div class="footballer-birthplace">País</div>
+        <div class="footballer-position">Posição</div>
+        <div class="footballer-club">Clube</div>
+        <div class="footballer-activity">Em atividade?</div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngFor="let footballer of footballers">
+      <app-footballers-list-item [footballer]="footballer" (itemChange)="refresh($event)"></app-footballers-list-item>
+    </li>
+    <div *ngIf="footballers.length == 0" class="alert alert-warning" role="alert">
+      Nenhum jogador foi encontrado.
+    </div>
+  </ul>
+</section>

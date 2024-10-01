@@ -1,0 +1,49 @@
+button {
+  margin-right: 0.25em
+}
+
+section {
+  margin-top: 0.5em
+}
+
+.footballer-item-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footballer-item-content > div {
+  flex: 1 1 auto;
+  font-weight: bold;
+}
+
+.footballer-id {
+  min-width: 50px;
+  max-width: 50px;
+}
+
+.footballer-name {
+  min-width: 225px;
+  max-width: 225px;
+}
+
+.footballer-birthday {
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.footballer-birthplace {
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.footballer-position {
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.footballer-club {
+  min-width: 150px;
+  max-width: 150px;
+}
+

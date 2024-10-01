@@ -1,0 +1,33 @@
+<h2>Jogador</h2>
+<hr>
+<section id="form">
+  <form (ngSubmit)="onSubmit()" #formFootballer="ngForm">
+    <div class="form-group">
+      <label for="InputNome">Nome</label>
+      <input [(ngModel)]="footballer.name" type="text" name="nome" class="form-control" id="InputNome" placeholder="Nome">
+    </div>
+    <div class="form-group">
+      <label for="InputDataNascimento">Data de nascimento</label>
+      <input [(ngModel)]="footballer.birthday" type="date" name="data" class="form-control" id="InputDataNascimento">
+    </div>
+    <div class="form-group">
+      <label for="InputPais">País</label>
+      <input [(ngModel)]="footballer.birthplace" type="text" name="pais" class="form-control" id="InputPais" placeholder="País">
+    </div>
+    <div class="form-group">
+      <label for="InputPosicao">Posição</label>
+      <input [(ngModel)]="footballer.position" type="text" name="posicao" class="form-control" id="InputPosicao" placeholder="Posição">
+    </div>
+    <div class="form-group">
+      <label for="InputClube">Clube</label>
+      <input [(ngModel)]="footballer.club" type="text" name="clube" class="form-control" id="InputClube" placeholder="Clube">
+    </div>
+    <div class="form-group">
+      <label for="InputAtividade">Em atividade?</label>
+      <input [(ngModel)]="footballer.inActivity" name="atividade" type="checkbox" class="form-group" id="InputAtividade">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary mr-2">Enviar</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['']">Cancelar</button>
+  </form>
+</section>
