@@ -25,7 +25,8 @@ import {FormsModule} from "@angular/forms";
 })
 export class FootballersListComponent implements OnInit {
   footballers: Footballer[] = [];
-  searchId: number | null = null; // Adiciona uma propriedade para armazenar o ID de busca
+  searchId: number | null = null; // Propriedade para armazenar o ID de busca
+  showOnlyActive: boolean = false; // Propriedade para controlar o filtro
 
   constructor(
       public footballerService: FootballerService,
@@ -53,6 +54,13 @@ export class FootballersListComponent implements OnInit {
         horizontalPosition: 'left',
       });
     }
+  }
+
+  // Propriedade computada para filtrar os jogadores com base na opção 'showOnlyActive'
+  get filteredFootballers(): Footballer[] {
+    return this.showOnlyActive
+        ? this.footballers.filter(footballer => footballer.inActivity) // Filtra apenas os jogadores ativos
+        : this.footballers; // Retorna todos os jogadores se o filtro não estiver ativado
   }
 
   searchFootballer() {
