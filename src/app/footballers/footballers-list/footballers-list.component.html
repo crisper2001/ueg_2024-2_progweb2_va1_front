@@ -7,6 +7,11 @@
     <input type="number" [(ngModel)]="searchId" placeholder="Buscar jogador por ID" class="form-control" />
     <button type="button" (click)="searchFootballer()" class="btn btn-primary mr-1">Buscar</button>
 </div>
+<div class="activity-toggle">
+    <input type="checkbox" [(ngModel)]="showOnlyActive" id="activityFilter" class="toggle-checkbox" />
+    <label for="activityFilter" class="toggle-label"></label>
+    <span>Mostrar apenas jogadores em atividade</span>
+</div>
 <section>
     <ul class="list-group">
         <li class="list-group-item" *ngIf="footballers.length != 0">
@@ -20,10 +25,10 @@
                 <div class="footballer-activity">Em atividade?</div>
             </div>
         </li>
-        <li class="list-group-item" *ngFor="let footballer of footballers">
+        <li class="list-group-item" *ngFor="let footballer of filteredFootballers">
             <app-footballers-list-item [footballer]="footballer" (itemChange)="refresh($event)"></app-footballers-list-item>
         </li>
-        <div *ngIf="footballers.length == 0" class="alert alert-warning" role="alert">
+        <div *ngIf="filteredFootballers.length == 0" class="alert alert-warning" role="alert">
             Nenhum jogador foi encontrado.
         </div>
     </ul>
